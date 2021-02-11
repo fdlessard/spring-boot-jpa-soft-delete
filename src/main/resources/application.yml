@@ -1,0 +1,49 @@
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: beans, health, loggers
+    health:
+      enabled: true
+    loggers:
+      enabled: true
+    beans:
+      enabled: true
+
+logging:
+  level.io.fdlessard.codebites.sofdelete: DEBUG
+  level.root: DEBUG
+  level.org.hibernate.SQL: info
+
+spring:
+  output:
+    ansi:
+      enabled: always
+  datasource:
+    platform: h2
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+    data: classpath:data/data.sql
+  # enable H2 web console and set url for web console
+  # http://localhost:8080/console
+  h2:
+    console:
+      enabled: true
+      path: /console
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+
+
+
+
+
+
